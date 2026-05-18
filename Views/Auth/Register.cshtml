@@ -1,0 +1,48 @@
+﻿@model Test.DTOs.RegisterViewModel
+
+@{
+    ViewData["Title"] = "Rejestracja";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <div class="card shadow border-0 rounded-3">
+                <div class="card-header bg-dark text-white text-center py-3 rounded-top">
+                    <h4 class="mb-0 fw-bold">Dołącz do nas!</h4>
+                </div>
+                <div class="card-body p-4">
+                    
+                    <div asp-validation-summary="All" class="text-danger mb-3 fw-bold"></div>
+
+                    <form asp-controller="Auth" asp-action="Register" method="post">
+                        
+                        <div class="mb-3">
+                            <label asp-for="Username" class="form-label fw-bold">Nazwa użytkownika (Nick)</label>
+                            <input asp-for="Username" class="form-control" placeholder="Wpisz swój nick..." required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Email" class="form-label fw-bold">Adres E-mail</label>
+                            <input asp-for="Email" type="email" class="form-control" placeholder="jan@kowalski.pl" required />
+                        </div>
+
+                        <div class="mb-4">
+                            <label asp-for="Password" class="form-label fw-bold">Hasło</label>
+                            <input asp-for="Password" type="password" class="form-control" placeholder="Wpisz trudne hasło..." required />
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100 fw-bold mb-3">
+                            Zarejestruj się
+                        </button>
+                    </form>
+
+                </div>
+                <div class="card-footer bg-light text-center py-3">
+                    <span class="text-muted">Masz już konto?</span> 
+                    <a asp-controller="Auth" asp-action="Login" class="fw-bold text-decoration-none">Zaloguj się</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
