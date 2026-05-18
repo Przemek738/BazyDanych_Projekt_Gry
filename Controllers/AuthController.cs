@@ -11,23 +11,6 @@ public class AuthController : Controller
     public AuthController(ApplicationDbContext context)
     {
         _context = context;
-        SeedAdminAccount();
-    }
-    
-    private void SeedAdminAccount()
-    {
-        if (!_context.Users.Any(u => u.Username == "admin"))
-        {
-            var admin = new User
-            {
-                Username = "admin",
-                Email = "admin@backlog.pl",
-                Password = PasswordHasher.HashPassword("admin123"),
-                Role = "Admin"
-            };
-            _context.Users.Add(admin);
-            _context.SaveChanges();
-        }
     }
     
     [HttpGet]
