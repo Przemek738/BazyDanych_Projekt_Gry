@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Test.Data;
-using Test.Models;
-using Test.DTOs;
+using BacklogManager.Data;
+using BacklogManager.Models;
+using BacklogManager.DTOs;
 
-namespace Test.Controllers;
+namespace BacklogManager.Controllers;
 public class UserGamesController : Controller
 {
     private readonly ApplicationDbContext _context;
