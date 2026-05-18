@@ -4,7 +4,7 @@ document.getElementById('usePlaceholderCheck').addEventListener('change', functi
 
     if (this.checked) {
         savedUrl = urlInput.value;
-        urlInput.value = '/lib/Images/placeholder.jpg';
+        urlInput.value = '/Images/placeholder.png';
         urlInput.readOnly = true;
     } else {
         urlInput.value = savedUrl;
