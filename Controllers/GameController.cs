@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Test.Data;
-using Test.DTOs;
-using Test.Models;
+using BacklogManager.Data;
+using BacklogManager.DTOs;
+using BacklogManager.Models;
 
-namespace Test.Controllers;
+namespace BacklogManager.Controllers;
 public class GameController : Controller
 {
     private readonly ApplicationDbContext _context;
