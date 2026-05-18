@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using BacklogManager.Models;
+using BacklogManager.Data;
 
 namespace BacklogManager.Controllers;
 
