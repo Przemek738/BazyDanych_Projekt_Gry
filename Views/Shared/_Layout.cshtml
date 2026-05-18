@@ -8,19 +8,22 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
     <link rel="stylesheet" href="~/Test.styles.css" asp-append-version="true"/>
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
 <header>
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
         <div class="container-fluid">
-            <a class="navbar-brand text-dark fw-bold" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/lib/Images/ControllerIcon.png" class="icon" alt="Controller Icon" />BacklogManager</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+            <a class="navbar-brand text-dark fw-bold" asp-area="" asp-controller="Home" asp-action="Index"><img
+                    src="~/Images/ControllerIcon.png" class="icon" alt="Controller Icon"/>BacklogManager</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
+                    aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                 <ul class="navbar-nav flex-grow-1">
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Game" asp-action="Index">Katalog Gier</a>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Game" asp-action="Index">Katalog
+                            Gier</a>
                     </li>
                 </ul>
 
@@ -29,12 +32,16 @@
                     {
                         <li class="nav-item d-flex align-items-center me-3">
                             <span class="text-success fw-bold">
-                                Witaj, @Context.Session.GetString("UserUsername")! 
-                                @if(Context.Session.GetString("UserRole") == "Admin") { <span class="badge bg-danger ms-1">Admin</span> }
+                                Witaj, @Context.Session.GetString("UserUsername")!
+                                @if (Context.Session.GetString("UserRole") == "Admin")
+                                {
+                                    <span class="badge bg-danger ms-1">Admin</span>
+                                }
                             </span>
                         </li>
                         <li class="nav-item">
-                            <a class="btn btn-outline-primary me-2 fw-bold" asp-controller="UserGames" asp-action="Index">Biblioteka</a>
+                            <a class="btn btn-outline-primary me-2 fw-bold" asp-controller="UserGames"
+                               asp-action="Index">Biblioteka</a>
                         </li>
                         <li class="nav-item">
                             <a class="btn btn-danger fw-bold" asp-controller="Auth" asp-action="Logout">Wyloguj</a>
@@ -46,7 +53,8 @@
                             <a class="btn btn-outline-dark fw-bold" asp-controller="Auth" asp-action="Login">Zaloguj</a>
                         </li>
                         <li class="nav-item">
-                            <a class="btn btn-primary fw-bold" asp-controller="Auth" asp-action="Register">Zarejestruj się</a>
+                            <a class="btn btn-primary fw-bold" asp-controller="Auth" asp-action="Register">Zarejestruj
+                                się</a>
                         </li>
                     }
                 </ul>
@@ -54,7 +62,8 @@
         </div>
     </nav>
 </header>
-<div class="container">
+
+<div class="container flex-grow-1">
     <main role="main" class="pb-3">
         @RenderBody()
     </main>

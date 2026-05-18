@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using BacklogManager.Data;
+using BacklogManager.Seeders;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,24 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddSession();
 
 var app = builder.Build();
+
+// Uruchamianie Seedera
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    try
+    {
+        var context = services.GetRequiredService<ApplicationDbContext>();
+        
+        context.Database.Migrate(); 
+        
+        DatabaseSeeder.Seed(context);
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Wystąpił błąd podczas seedowania bazy: {ex.Message}");
+    }
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
