@@ -41,7 +41,7 @@ namespace BacklogManager.Seeders
                         Developer = "CD Projekt RED", 
                         ReleaseYear = 2015, 
                         Genre = "RPG", 
-                        ImageUrl = "/Images/placeholder.png" 
+                        ImageUrl = "https://images.igdb.com/igdb/image/upload/t_cover_big/coaarl.webp" 
                     },
                     new Game 
                     { 
@@ -49,7 +49,7 @@ namespace BacklogManager.Seeders
                         Developer = "FromSoftware", 
                         ReleaseYear = 2022, 
                         Genre = "Action RPG", 
-                        ImageUrl = "/Images/placeholder.png" 
+                        ImageUrl = "https://images.igdb.com/igdb/image/upload/t_cover_big/co4jni.webp" 
                     },
                     new Game 
                     { 
@@ -57,7 +57,7 @@ namespace BacklogManager.Seeders
                         Developer = "CD Projekt RED", 
                         ReleaseYear = 2020, 
                         Genre = "RPG", 
-                        ImageUrl = "/Images/placeholder.png" 
+                        ImageUrl = "https://images.igdb.com/igdb/image/upload/t_cover_big/coaih8.webp" 
                     },
                     new Game 
                     { 
@@ -65,7 +65,7 @@ namespace BacklogManager.Seeders
                         Developer = "ConcernedApe", 
                         ReleaseYear = 2016, 
                         Genre = "Symulator", 
-                        ImageUrl = "/Images/placeholder.png" 
+                        ImageUrl = "https://images.igdb.com/igdb/image/upload/t_cover_big/coa93h.webp" 
                     },
                     new Game
                     {

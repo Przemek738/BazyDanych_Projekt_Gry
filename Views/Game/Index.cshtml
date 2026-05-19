@@ -40,6 +40,17 @@
                     
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title fw-bold text-truncate" title="@game.Title">@game.Title</h5>
+                        <div class="mb-2">
+                            @if (game.AverageRating.HasValue)
+                            {
+                                <span class="text-warning fw-bold"><i class="fa-solid fa-star"></i> @game.AverageRating.Value.ToString("0.0")</span>
+                                <span class="text-muted small">/ 10</span>
+                            }
+                            else
+                            {
+                                <span class="text-muted small">Brak ocen</span>
+                            }
+                        </div>
                         <p class="card-text text-muted small mb-1">@game.Developer &bull; @game.ReleaseYear</p>
                         
                         <div class="mt-auto pt-2">

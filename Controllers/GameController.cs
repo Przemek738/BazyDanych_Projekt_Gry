@@ -34,7 +34,8 @@ public class GameController : Controller
                 ReleaseYear = game.ReleaseYear,
                 Genre = game.Genre,
                 ImageUrl = game.ImageUrl,
-                IsInLibrary = userOwnedGameIds.Contains(game.Id)
+                IsInLibrary = userOwnedGameIds.Contains(game.Id),
+                AverageRating = _context.Reviews.Where(r => r.GameId == game.Id).Average(r => (double?)r.Rating)
             }).ToList();
         var allGenres = _context.Games.Select(g => g.Genre).Distinct().ToList();
         

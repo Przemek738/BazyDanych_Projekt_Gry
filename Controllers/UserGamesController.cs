@@ -29,6 +29,7 @@ public class UserGamesController : Controller
             .Where(ug => ug.UserId == userId)
             .Select(ug => new UserGameIndexViewModel {
                 UserGameId = ug.Id,
+                GameId = ug.GameId,
                 GameTitle = ug.Game.Title,
                 PlatformNames = ug.Platforms.Select(p => p.Name).ToList(),
                 Status = ug.Status,

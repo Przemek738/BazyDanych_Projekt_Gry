@@ -8,4 +8,6 @@ public class GameCreateViewModel
     public string Genre { get; set; }
     public string ImageUrl { get; set; }
     public bool IsInLibrary { get; set; }
+    
+    public double? AverageRating { get; set; }
 }
