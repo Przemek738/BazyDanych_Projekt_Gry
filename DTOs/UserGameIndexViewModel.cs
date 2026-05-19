@@ -2,6 +2,7 @@
 public class UserGameIndexViewModel
 {
     public int UserGameId { get; set; }
+    public int GameId { get; set; }
     public string GameTitle { get; set; }
     public List<string> PlatformNames { get; set; } = new();
     public string Status { get; set; }

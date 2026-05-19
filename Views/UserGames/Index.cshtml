@@ -46,6 +46,12 @@
                                     }
                                     
                                     <div class="mt-auto pt-3 d-flex justify-content-between">
+                                        @if (item.Status == "Ukończona")
+                                        {
+                                            <a asp-controller="Reviews" asp-action="Create" asp-route-gameId="@item.GameId" class="btn btn-sm btn-outline-warning me-2" title="Oceń grę">
+                                                <i class="fa-solid fa-star"></i> Oceń
+                                            </a>
+                                        }
                                         <a asp-action="Edit" asp-route-id="@item.UserGameId" class="btn btn-sm btn-outline-primary me-2">Edytuj</a>
                                         <form asp-action="Delete" asp-route-id="@item.UserGameId" method="post" onsubmit="return confirm('Usunąć z kolekcji?')">
                                             <button type="submit" class="btn btn-sm btn-outline-danger">Usuń</button>

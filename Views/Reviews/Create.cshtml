@@ -1,0 +1,43 @@
+﻿@model BacklogManager.DTOs.ReviewCreateViewModel
+
+@{
+    ViewData["Title"] = "Oceń Grę";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm border-0 rounded-3">
+                <div class="card-header bg-warning text-dark text-center py-3">
+                    <h4 class="mb-0 fw-bold"><i class="fa-solid fa-star"></i> @ViewData["CardTitle"]</h4>
+                </div>
+                <div class="card-body p-4 text-center">
+                    
+                    <img src="@Model.GameImageUrl" class="img-fluid rounded mb-3 shadow-sm" style="height: 150px; object-fit: cover;" alt="Okładka" onerror="this.onerror=null; this.src='/images/placeholder.png';" />
+                    <h4 class="fw-bold text-secondary mb-4">@Model.GameTitle</h4>
+
+                    <form asp-action="Create" method="post" class="text-start">
+                        <input type="hidden" asp-for="GameId" />
+                        <div asp-validation-summary="All" class="text-danger mb-3 fw-bold"></div>
+
+                        <div class="mb-4 text-center">
+                            <label class="form-label fw-bold d-block">Twoja Ocena (1-10)</label>
+                            <input asp-for="Rating" type="range" class="form-range w-75" min="1" max="10" step="1" id="ratingSlider" oninput="document.getElementById('ratingValue').innerText = this.value">
+                            <div class="display-6 fw-bold text-warning mt-2"><span id="ratingValue">@Model.Rating</span> / 10</div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label asp-for="Comment" class="form-label fw-bold">Napisz recenzję (opcjonalnie)</label>
+                            <textarea asp-for="Comment" class="form-control" rows="4" placeholder="Podziel się swoimi wrażeniami..."></textarea>
+                        </div>
+
+                        <div class="d-flex justify-content-between">
+                            <a asp-controller="UserGames" asp-action="Index" class="btn btn-outline-secondary">Anuluj</a>
+                            <button type="submit" class="btn btn-warning fw-bold px-4">Opublikuj Ocenę</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

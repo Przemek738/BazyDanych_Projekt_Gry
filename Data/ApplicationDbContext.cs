@@ -13,5 +13,6 @@ namespace BacklogManager.Data
         public DbSet<User> Users { get; set; }
         public DbSet<Platform> Platforms { get; set; }
         public DbSet<UserGame> UserGames { get; set; }
+        public DbSet<Review> Reviews { get; set; }
     }
 }
