@@ -66,6 +66,54 @@ namespace BacklogManager.Seeders
                         ReleaseYear = 2016, 
                         Genre = "Symulator", 
                         ImageUrl = "/Images/placeholder.png" 
+                    },
+                    new Game
+                    {
+                        Title = "Hyperdimension Neptunia Re;Birth1",
+                        Developer = "Compile Heart",
+                        ReleaseYear = 2013,
+                        Genre = "JRPG",
+                        ImageUrl = "https://images.igdb.com/igdb/image/upload/t_cover_big/co1sz1.webp"
+                    },
+                    new Game
+                    {
+                        Title = "Hyperdimension Neptunia Re;Birth2: Sisters Generation",
+                        Developer = "Compile Heart",
+                        ReleaseYear = 2014,
+                        Genre = "JRPG",
+                        ImageUrl = "https://images.igdb.com/igdb/image/upload/t_cover_big/co1sz2.webp"
+                    },
+                	new Game
+                    {
+                        Title = "Hyperdimension Neptunia Re;Birth3: V Generation",
+                        Developer = "Compile Heart",
+                        ReleaseYear = 2014,
+                        Genre = "JRPG",
+                        ImageUrl = "https://images.igdb.com/igdb/image/upload/t_cover_big/cobqxv.webp"
+                    }, 
+                    new Game
+                    {
+                    Title = "Persona 5 Royal",
+                    Developer = "Atlus",
+                    ReleaseYear = 2019,
+                    Genre = "JRPG",
+                    ImageUrl = "https://images.igdb.com/igdb/image/upload/t_cover_big/cobaqh.webp"
+                    },
+                    new Game
+                    {
+                        Title = "Hollow Knight: Silksong",
+                        Developer = "Team Cherry",
+                        ReleaseYear = 2025,
+                        Genre = "Metroidvania",
+                        ImageUrl = "https://images.igdb.com/igdb/image/upload/t_cover_big/cobebu.webp"
+                    },
+                    new Game
+                    {
+                        Title = "Red Dead Redemption 2",
+                        Developer = "Rockstar Games",
+                        ReleaseYear = 2018,
+                        Genre = "Action RPG",
+                        ImageUrl = "https://images.igdb.com/igdb/image/upload/t_cover_big/co1q1f.webp"
                     }
                 );
                 context.SaveChanges();
