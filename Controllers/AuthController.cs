@@ -65,4 +65,74 @@ public class AuthController : Controller
         HttpContext.Session.Clear();
         return RedirectToAction("Index", "Home");
     }
+    
+    // GET: /Auth/Settings
+    [HttpGet]
+    public IActionResult Settings()
+    {
+        var userId = HttpContext.Session.GetInt32("UserId");
+        if (userId == null) return RedirectToAction("Login");
+
+        var user = _context.Users.Find(userId);
+        if (user == null) return NotFound();
+
+        var viewModel = new ProfileSettingsViewModel
+        {
+            Username = user.Username,
+            Email = user.Email
+        };
+
+        return View(viewModel);
+    }
+    
+    [HttpPost]
+    public IActionResult Settings(ProfileSettingsViewModel model)
+    {
+        var userId = HttpContext.Session.GetInt32("UserId");
+        if (userId == null) return RedirectToAction("Login");
+
+        var userFromDb = _context.Users.Find(userId);
+        if (userFromDb == null) return NotFound();
+        
+        if (userFromDb.Username != model.Username && _context.Users.Any(u => u.Username == model.Username))
+        {
+            ModelState.AddModelError("Username", "Ta nazwa użytkownika jest już zajęta!");
+            return View(model);
+        }
+        
+        if (!string.IsNullOrEmpty(model.NewPassword))
+        {
+            if (string.IsNullOrEmpty(model.OldPassword))
+            {
+                ModelState.AddModelError("OldPassword", "Musisz podać obecne hasło, aby ustawić nowe.");
+                return View(model);
+            }
+
+            var hashedOld = PasswordHasher.HashPassword(model.OldPassword);
+            if (userFromDb.Password != hashedOld)
+            {
+                ModelState.AddModelError("OldPassword", "Podane obecne hasło jest nieprawidłowe.");
+                return View(model);
+            }
+
+            if (model.NewPassword != model.ConfirmNewPassword)
+            {
+                ModelState.AddModelError("ConfirmNewPassword", "Nowe hasła nie są identyczne.");
+                return View(model);
+            }
+            
+            userFromDb.Password = PasswordHasher.HashPassword(model.NewPassword);
+        }
+        
+        userFromDb.Username = model.Username;
+        userFromDb.Email = model.Email;
+
+        _context.Users.Update(userFromDb);
+        _context.SaveChanges();
+        
+        HttpContext.Session.SetString("UserUsername", userFromDb.Username);
+
+        TempData["SuccessMessage"] = "Dane konta zostały pomyślnie zaktualizowane!";
+        return RedirectToAction("Settings");
+    }
 }
