@@ -20,14 +20,14 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
+                <ul class="navbar-nav flex-grow-1 align-items-center">
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-controller="Game" asp-action="Index">Katalog
                             Gier</a>
                     </li>
                 </ul>
 
-                <ul class="navbar-nav">
+                <ul class="navbar-nav align-items-center">
                     @if (Context.Session.GetString("UserUsername") != null)
                     {
                         <li class="nav-item d-flex align-items-center me-3">
@@ -35,13 +35,18 @@
                                 Witaj, @Context.Session.GetString("UserUsername")!
                                 @if (Context.Session.GetString("UserRole") == "Admin")
                                 {
-                                    <span class="badge bg-danger ms-1">Admin</span>
+                                    <a asp-controller="Admin" asp-action="Users" class="badge bg-danger text-decoration-none shadow-sm" title="Przejdź do panelu admina">Admin</a>
                                 }
                             </span>
                         </li>
                         <li class="nav-item">
                             <a class="btn btn-outline-primary me-2 fw-bold" asp-controller="UserGames"
                                asp-action="Index">Biblioteka</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link px-2 me-2" asp-controller="Auth" asp-action="Settings" title="Ustawienia konta">
+                                <img class="icon" src="~/Images/settings.png" alt="settings icon" style="height: 30px; width: auto;" />
+                            </a>
                         </li>
                         <li class="nav-item">
                             <a class="btn btn-danger fw-bold" asp-controller="Auth" asp-action="Logout">Wyloguj</a>

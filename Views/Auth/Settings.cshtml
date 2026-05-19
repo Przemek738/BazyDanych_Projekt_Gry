@@ -1,0 +1,71 @@
+﻿@model BacklogManager.DTOs.ProfileSettingsViewModel
+
+@{
+    ViewData["Title"] = "Ustawienia Konta";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-7">
+            
+            @if (TempData["SuccessMessage"] != null)
+            {
+                <div class="alert alert-success alert-dismissible fade show shadow-sm" role="alert">
+                    <i class="fa-solid fa-circle-check me-2"></i> @TempData["SuccessMessage"]
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            }
+
+            <div class="card shadow border-0 rounded-3">
+                <div class="card-header bg-primary text-white py-3">
+                    <h4 class="mb-0 fw-bold"><i class="fa-solid fa-user-gear me-2"></i> Ustawienia Twojego Konta</h4>
+                </div>
+                <div class="card-body p-4">
+                    
+                    <form asp-action="Settings" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3 fw-bold"></div>
+
+                        <h5 class="fw-bold text-secondary border-bottom pb-2 mb-3">Dane Podstawowe</h5>
+                        
+                        <div class="mb-3">
+                            <label asp-for="Username" class="form-label fw-bold">Nazwa użytkownika</label>
+                            <input asp-for="Username" class="form-control" required />
+                            <span asp-validation-for="Username" class="text-danger small"></span>
+                        </div>
+
+                        <div class="mb-4">
+                            <label asp-for="Email" class="form-label fw-bold">Adres E-mail</label>
+                            <input asp-for="Email" type="email" class="form-control" required />
+                        </div>
+
+                        <h5 class="fw-bold text-secondary border-bottom pb-2 mb-3 mt-4">Zmiana Hasła <span class="text-muted fs-6 font-monospace">(Opcjonalnie)</span></h5>
+                        
+                        <div class="mb-3">
+                            <label asp-for="OldPassword" class="form-label fw-bold">Obecne hasło</label>
+                            <input asp-for="OldPassword" type="password" class="form-control" placeholder="Wpisz aktualne hasło..." />
+                            <span asp-validation-for="OldPassword" class="text-danger small"></span>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="NewPassword" class="form-label fw-bold">Nowe hasło</label>
+                                <input asp-for="NewPassword" type="password" class="form-control" placeholder="Minimum 6 znaków..." />
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="ConfirmNewPassword" class="form-label fw-bold">Powtórz nowe hasło</label>
+                                <input asp-for="ConfirmNewPassword" type="password" class="form-control" placeholder="Powtórz nowe hasło..." />
+                                <span asp-validation-for="ConfirmNewPassword" class="text-danger small"></span>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-between mt-4 pt-2">
+                            <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary">Powrót</a>
+                            <button type="submit" class="btn btn-success fw-bold px-4">Zapisz ustawienia</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
