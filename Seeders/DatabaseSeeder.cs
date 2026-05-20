@@ -15,7 +15,9 @@ namespace BacklogManager.Seeders
                     new Platform { Name = "PlayStation 5" },
                     new Platform { Name = "PlayStation 4" },
                     new Platform { Name = "Xbox Series X/S" },
-                    new Platform { Name = "Nintendo Switch" }
+                    new Platform { Name = "Nintendo Switch" },
+                    new Platform { Name = "Mobile" },
+                    new Platform { Name = "Steamdeck"}
                 );
                 context.SaveChanges();
             }
@@ -85,11 +87,11 @@ namespace BacklogManager.Seeders
                     },
                 	new Game
                     {
-                        Title = "Hyperdimension Neptunia Re;Birth3: V Generation",
-                        Developer = "Compile Heart",
-                        ReleaseYear = 2014,
-                        Genre = "JRPG",
-                        ImageUrl = "https://images.igdb.com/igdb/image/upload/t_cover_big/cobqxv.webp"
+                        Title = "Factorio",
+                        Developer = "Wube Software",
+                        ReleaseYear = 2020,
+                        Genre = "Simulator",
+                        ImageUrl = "https://images.igdb.com/igdb/image/upload/t_cover_big/co1tfy.webp"
                     }, 
                     new Game
                     {

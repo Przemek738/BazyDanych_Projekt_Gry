@@ -8,3 +8,9 @@ Kluczowe funkcjonalności, które planujemy wdrożyć:
 - Dodawanie gier do własnej biblioteki z przypisaniem platformy.
 - System ocen i dodawania krótkich recenzji tekstowych do ukończonych tytułów.
 - Wyszukiwanie i filtrowanie gier po gatunkach, platformach i statusach.
+
+Uruchomienie Aplikacji:
+1. Pobranie plików.
+2. Zbudowanie obrazu Dockera przez konsole: docker build -t backlog-manager .
+3. Uruchomienie kontenera: docker run -d -p 8080:8080 --name proj-backlog backlog-manager,
+   (Opcjonalnie do zapisywanaia bazy): docker run -d -p 8080:8080 -v backlog_data:/app/Data --name proj-backlog backlog-manager
