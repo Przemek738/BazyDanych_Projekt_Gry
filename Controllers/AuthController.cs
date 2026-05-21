@@ -21,7 +21,19 @@ public class AuthController : Controller
     {
         if (_context.Users.Any(u => u.Username == model.Username))
         {
-            ModelState.AddModelError("", "Ta nazwa użytkownika jest zajęta!");
+            ModelState.AddModelError("Name", "Ta nazwa użytkownika jest zajęta!");
+            return View(model);
+        }
+        
+        if (_context.Users.Any(u => u.Email == model.Email))
+        {
+            ModelState.AddModelError("Email", "Podany email jest już zajęty!");
+            return View(model);
+        }
+        
+        if (model.Password.Length < 6)
+        {
+            ModelState.AddModelError("Password", "Podane hasło musi mieć minimum 6 znaków!");
             return View(model);
         }
 
