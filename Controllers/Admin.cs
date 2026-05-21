@@ -43,7 +43,7 @@ public class AdminController : Controller
                 var currentUserId = HttpContext.Session.GetInt32("UserId");
                 if (user.Id == currentUserId)
                 {
-                    TempData["WarningMessage"] = "Nie możesz zmienić swojej własnej roli!";
+                    TempData["WarningMessageAdmin"] = "Nie możesz zmienić swojej własnej roli!";
                     return RedirectToAction("Users");
                 }
 
@@ -66,7 +66,7 @@ public class AdminController : Controller
                 var currentUserId = HttpContext.Session.GetInt32("UserId");
                 if (user.Id == currentUserId)
                 {
-                    TempData["WarningMessage"] = "Nie możesz usunąć swojego własnego konta z tego panelu!";
+                    TempData["WarningMessageAdmin"] = "Nie możesz usunąć swojego własnego konta z tego panelu!";
                     return RedirectToAction("Users");
                 }
 
