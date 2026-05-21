@@ -77,11 +77,11 @@ namespace BacklogManager.Seeders
                     },
                     new Game
                     {
-                        Title = "Hyperdimension Neptunia Re;Birth2: Sisters Generation",
-                        Developer = "Compile Heart",
-                        ReleaseYear = 2014,
-                        Genre = "JRPG",
-                        ImageUrl = "https://images.igdb.com/igdb/image/upload/t_cover_big/co1sz2.webp"
+                        Title = "Factorio",
+                        Developer = "Wube Software",
+                        ReleaseYear = 2020,
+                        Genre = "Simulator",
+                        ImageUrl = "https://images.igdb.com/igdb/image/upload/t_cover_big/co1tfy.webp"
                     },
                 	new Game
                     {
