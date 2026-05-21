@@ -6,6 +6,14 @@
 
 <div class="container mt-4">
     <h2 class="fw-bold text-primary mb-4">Moja Kolekcja Gier</h2>
+    
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            @TempData["SuccessMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
 
     @if (!Model.Any())
     {
